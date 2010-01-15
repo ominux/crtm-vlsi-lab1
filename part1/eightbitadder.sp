@@ -63,18 +63,18 @@ M_4 net_1 A vdd vdd p W='4*1u' L=lp_min ad='areap(4,sdd)' as='areap(4,sdd)'
 .ENDS	$ nor
 
 .SUBCKT xor2 A B xorO 
-Xnor A B net_1 nor 
-M_1 xorO net_1 GND gnd n W='1*1u' L=ln_min ad='arean(1,sdd)' 
+Xnor A B net_2 nor 
+M_1 xorO net_2 GND gnd n W='1*1u' L=ln_min ad='arean(1,sdd)' 
 + as='arean(1,sdd)' pd='perin(1,sdd)' ps='perin(1,sdd)' 
-M_2 xorO A net_2 gnd n W='2*1u' L=ln_min ad='arean(2,sdd)' 
+M_2 xorO A net_3 gnd n W='2*1u' L=ln_min ad='arean(2,sdd)' 
 + as='arean(2,sdd)' pd='perin(2,sdd)' ps='perin(2,sdd)' 
-M_3 net_2 B GND gnd n W='2*1u' L=ln_min ad='arean(2,sdd)' as='arean(2,sdd)' 
+M_3 net_3 B GND gnd n W='2*1u' L=ln_min ad='arean(2,sdd)' as='arean(2,sdd)' 
 + pd='perin(2,sdd)' ps='perin(2,sdd)' 
-M_4 xorO net_1 net_3 vdd p W='4*1u' L=lp_min ad='areap(4,sdd)' 
+M_4 xorO net_2 net_1 vdd p W='4*1u' L=lp_min ad='areap(4,sdd)' 
 + as='areap(4,sdd)' pd='perip(4,sdd)' ps='perip(4,sdd)' 
-M_5 net_3 A VDD vdd p W='4*1u' L=lp_min ad='areap(4,sdd)' as='areap(4,sdd)' 
+M_5 net_1 A VDD vdd p W='4*1u' L=lp_min ad='areap(4,sdd)' as='areap(4,sdd)' 
 + pd='perip(4,sdd)' ps='perip(4,sdd)' 
-M_6 net_3 B VDD vdd p W='4*1u' L=lp_min ad='areap(4,sdd)' as='areap(4,sdd)' 
+M_6 net_1 B VDD vdd p W='4*1u' L=lp_min ad='areap(4,sdd)' as='areap(4,sdd)' 
 + pd='perip(4,sdd)' ps='perip(4,sdd)' 
 .ENDS	$ xor2
 
@@ -90,16 +90,17 @@ Xhalfadder_1 net_2 Cin net_3 S halfadder
 .ENDS	$ fulladder
 
 * start main CELL eightbitadder
-* .SUBCKT eightbitadder A0 A1 A2 A3 A4 A5 A6 A7 B0 B1 B2 B3 B4 B5 B6 B7 Cin 
-*+ Cout Sum0 Sum1 Sum2 Sum3 Sum4 Sum5 Sum6 Sum7 
-Xfulladder A0 B0 Cin net_5 Sum0 fulladder 
-Xfulladder_1 A1 B1 net_5 net_7 Sum1 fulladder 
-Xfulladder_2 A2 B2 net_7 net_2 Sum2 fulladder 
-Xfulladder_3 A3 B3 net_2 net_6 Sum3 fulladder 
-Xfulladder_4 A4 B4 net_6 net_1 Sum4 fulladder 
-Xfulladder_5 A5 B5 net_1 net_3 Sum5 fulladder 
-Xfulladder_6 A6 B6 net_3 net_4 Sum6 fulladder 
-Xfulladder_7 A7 B7 net_4 Cout Sum7 fulladder 
+* .SUBCKT eightbitadder A[0] A[1] A[2] A[3] A[4] A[5] A[6] A[7] B[0] B[1] 
+*+ B[2] B[3] B[4] B[5] B[6] B[7] Cin Cout Sum[0] Sum[1] Sum[2] Sum[3] 
+*+ Sum[4] Sum[5] Sum[6] Sum[7] 
+Xfulladder A[0] B[0] Cin net_2 Sum[0] fulladder 
+Xfulladder_1 A[1] B[1] net_2 net_7 Sum[1] fulladder 
+Xfulladder_2 A[2] B[2] net_7 net_1 Sum[2] fulladder 
+Xfulladder_3 A[3] B[3] net_1 net_5 Sum[3] fulladder 
+Xfulladder_4 A[4] B[4] net_5 net_3 Sum[4] fulladder 
+Xfulladder_5 A[5] B[5] net_3 net_6 Sum[5] fulladder 
+Xfulladder_6 A[6] B[6] net_6 net_4 Sum[6] fulladder 
+Xfulladder_7 A[7] B[7] net_4 Cout Sum[7] fulladder 
 * .ENDS	$ eightbitadder
 
 .GLOBAL gnd vdd

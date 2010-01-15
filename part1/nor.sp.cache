@@ -1,9 +1,8 @@
 set NETLIST_CACHE(nor,cells) {{icon nmos {}} {icon pmos {}}}
 set netlist_props spice
 set netlist_level 1000
-set NETLIST_CACHE(nor,level) main
 set NETLIST_CACHE(nor,globals) {gnd vdd}
 set NETLIST_CACHE(nor,version) MMI_SUE4.3.6
-set NETLIST_CACHE(nor) {{* start main CELL nor} {* .SUBCKT nor A B O } {M_1 O B gnd gnd n W='1*1u' L=ln_min ad='arean(1,sdd)' as='arean(1,sdd)' } {+ pd='perin(1,sdd)' ps='perin(1,sdd)' } {M_2 O A gnd gnd n W='1*1u' L=ln_min ad='arean(1,sdd)' as='arean(1,sdd)' } {+ pd='perin(1,sdd)' ps='perin(1,sdd)' } {M_3 O B net_1 vdd p W='4*1u' L=lp_min ad='areap(4,sdd)' as='areap(4,sdd)' } {+ pd='perip(4,sdd)' ps='perip(4,sdd)' } {M_4 net_1 A vdd vdd p W='4*1u' L=lp_min ad='areap(4,sdd)' as='areap(4,sdd)' } {+ pd='perip(4,sdd)' ps='perip(4,sdd)' } {* .ENDS	$ nor} {}}
+set NETLIST_CACHE(nor) {{.SUBCKT nor A B O } {M_1 O B gnd gnd n W='1*1u' L=ln_min ad='arean(1,sdd)' as='arean(1,sdd)' } {+ pd='perin(1,sdd)' ps='perin(1,sdd)' } {M_2 O A gnd gnd n W='1*1u' L=ln_min ad='arean(1,sdd)' as='arean(1,sdd)' } {+ pd='perin(1,sdd)' ps='perin(1,sdd)' } {M_3 O B net_1 vdd p W='4*1u' L=lp_min ad='areap(4,sdd)' as='areap(4,sdd)' } {+ pd='perip(4,sdd)' ps='perip(4,sdd)' } {M_4 net_1 A vdd vdd p W='4*1u' L=lp_min ad='areap(4,sdd)' as='areap(4,sdd)' } {+ pd='perip(4,sdd)' ps='perip(4,sdd)' } {.ENDS	$ nor} {}}
 set NETLIST_CACHE(nor,names) {{390 480 {1 gnd}} {200 330 {1 B}} {430 200 {0 M_4}} {380 420 {0 M_1}} {200 250 {1 A}} {370 200 {0 A}} {430 320 {0 O}} {380 460 {0 gnd}} {430 240 {0 net_1} {1 net_1}} {530 420 {0 M_2}} {430 160 {0 vdd} {2 vdd}} {380 380 {0 O}} {530 340 {1 O}} {430 280 {0 M_3}} {470 420 {0 A}} {530 460 {0 gnd}} {320 420 {0 B}} {530 380 {0 O}} {530 480 {1 gnd}} {370 280 {0 B}}}
 set NETLIST_CACHE(nor,wires) {{380 380 430 380 O} {430 380 530 380 O} {280 330 280 420 B} {280 420 320 420 B} {270 280 270 330 B} {270 280 370 280 B} {270 330 280 330 B} {290 200 290 250 A} {290 200 370 200 A} {230 450 470 450 A} {470 420 470 450 A} {200 250 230 250 A} {230 250 290 250 A} {430 340 530 340 O} {430 340 430 380 O} {430 320 430 340 O} {390 460 390 480 gnd} {380 460 390 460 gnd} {530 460 530 480 gnd} {230 250 230 450 A} {200 330 270 330 B}}
