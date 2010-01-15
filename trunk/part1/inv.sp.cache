@@ -1,0 +1,9 @@
+set NETLIST_CACHE(inv,cells) {{icon nmos {}} {icon pmos {}}}
+set netlist_props spice
+set netlist_level 1000
+set NETLIST_CACHE(inv,level) main
+set NETLIST_CACHE(inv,globals) {gnd vdd}
+set NETLIST_CACHE(inv,version) MMI_SUE4.3.6
+set NETLIST_CACHE(inv) {{* start main CELL inv} {* .SUBCKT inv A O } {M_1 O A gnd gnd n W='1*1u' L=ln_min ad='arean(1,sdd)' as='arean(1,sdd)' } {+ pd='perin(1,sdd)' ps='perin(1,sdd)' } {M_2 O A vdd vdd p W='2*1u' L=lp_min ad='areap(2,sdd)' as='areap(2,sdd)' } {+ pd='perip(2,sdd)' ps='perip(2,sdd)' } {* .ENDS	$ inv} {}}
+set NETLIST_CACHE(inv,names) {{370 430 {0 A}} {430 290 {0 M_2}} {430 470 {0 gnd}} {430 390 {0 O}} {430 500 {1 gnd}} {370 290 {0 A}} {430 230 {1 vdd}} {430 330 {0 O}} {430 250 {0 vdd}} {490 360 {1 O}} {430 430 {0 M_1}} {240 360 {1 A}}}
+set NETLIST_CACHE(inv,wires) {{320 290 370 290 A} {320 430 370 430 A} {430 360 490 360 O} {430 360 430 390 O} {430 330 430 360 O} {430 470 430 500 gnd} {430 230 430 250 vdd} {320 290 320 360 A} {320 360 320 430 A} {240 360 320 360 A}}

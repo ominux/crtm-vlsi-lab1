@@ -3,10 +3,10 @@ A A input
 A B input
 A nandO output
 | device pmos 390 270
-p A VDD nandO 24 200
+p A vdd nandO 24 200
 | device pmos_1 560 270
-p B VDD nandO 24 200
+p B vdd nandO 24 200
 | device nmos 460 420
 n A net_1 nandO 24 200
 | device nmos_1 460 500
-n B GND net_1 24 200
+n B gnd net_1 24 200

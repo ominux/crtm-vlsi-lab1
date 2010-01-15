@@ -1,0 +1,28 @@
+*****  HSPICE  Y-2006.03       (20060222) 16:06:54  01/15/2010  linux
+ Input File: nor.sp
+ lic:
+ lic: FLEXlm: v8.4b
+ lic: USER:   ravishan             HOSTNAME: ug142.eecg
+ lic: HOSTID: 00219b46563c         PID:      13010
+ lic: Using FLEXlm license file:
+ lic: /CMC/tools/licenses/synopsys.license
+ lic: Checkout hspice;  Encryption code: 2DBA5AA5CF41326EE255
+ lic: License/Maintenance for hspice will expire on 31-may-2010/2009.03
+ lic: 1(in_use)/50 FLOATING license(s) on SERVER u10e.vrg.utoronto.ca
+ lic:
+ Init: hspice initialization file: /CMC/tools/meta/Latest/hspice.ini
+ init: begin read circuit files,  cpu clock=  2.00E-02
+       option post
+       option acct
+       option opts
+       option lvltim   =     2.00
+       option post_v   =    9.007E+03
+ init: end read circuit files,  cpu clock=  2.40E-02 memory=    158 kb
+ init: begin check errors,  cpu clock=  2.40E-02
+ **error**  no dc path to ground from node        0:                a
+ **error**  no dc path to ground from node        0:                b
+ init: end check errors,  cpu clock=  2.40E-02 memory=    161 kb
+ init: begin setup matrix, pivot=    10 cpu clock=  2.40E-02
+>error          ***** hspice job aborted
+ Init: hspice initialization file: /CMC/tools/meta/Latest/hspice.ini
+ lic: Release hspice token(s)

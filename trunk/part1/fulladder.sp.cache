@@ -1,0 +1,7 @@
+set NETLIST_CACHE(fulladder,cells) {{schematic nand} {schematic halfadder}}
+set netlist_props spice
+set netlist_level 1000
+set NETLIST_CACHE(fulladder,version) MMI_SUE4.3.6
+set NETLIST_CACHE(fulladder) {{.SUBCKT fulladder A B Cin Cout S } {Xnand net_1 net_3 Cout nand } {Xhalfadder A B net_1 net_2 halfadder } {Xhalfadder_1 net_2 Cin net_3 S halfadder } {.ENDS	$ fulladder} {}}
+set NETLIST_CACHE(fulladder,names) {{750 310 {0 S}} {290 230 {0 B}} {220 230 {1 B}} {830 330 {1 S}} {750 370 {0 net_3}} {1010 220 {1 Cout}} {650 400 {0 Xhalfadder_1}} {390 290 {0 Xhalfadder}} {550 320 {0 net_2}} {220 290 {1 Cin}} {490 200 {0 net_2}} {550 340 {0 Cin}} {890 300 {0 Xnand}} {790 220 {0 net_1}} {220 180 {1 A}} {490 260 {0 net_1}} {790 240 {0 net_3}} {990 220 {0 Cout}} {290 210 {0 A}}}
+set NETLIST_CACHE(fulladder,wires) {{220 180 260 180 A} {220 230 290 230 B} {260 210 290 210 A} {260 180 260 210 A} {220 290 220 340 Cin} {220 340 550 340 Cin} {530 320 550 320 net_2} {810 330 830 330 S} {990 220 1010 220 Cout} {770 240 790 240 net_3} {660 220 790 220 net_1} {490 200 530 200 net_2} {530 200 530 320 net_2} {490 260 660 260 net_1} {660 220 660 260 net_1} {750 310 810 310 S} {810 310 810 330 S} {750 370 770 370 net_3} {770 240 770 370 net_3}}

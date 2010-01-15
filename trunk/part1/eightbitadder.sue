@@ -1,0 +1,129 @@
+# SUE version MMI_SUE4.3.6
+
+proc SCHEMATIC_eightbitadder {} {
+  make fulladder -origin {250 250}
+  make fulladder -origin {450 250}
+  make fulladder -origin {640 250}
+  make fulladder -origin {830 250}
+  make fulladder -origin {1020 250}
+  make fulladder -origin {1220 250}
+  make fulladder -origin {1430 250}
+  make fulladder -origin {1630 250}
+  make input -name Cin -origin {70 210}
+  make output -name Cout -origin {1790 210}
+  make name_net_s -orient R90 -name {Sum[0]} -origin {250 370}
+  make name_net_s -orient R90 -name {Sum[1]} -origin {450 380}
+  make name_net_s -orient R90 -name {Sum[7]} -origin {1630 390}
+  make name_net_s -orient R90 -name {Sum[6]} -origin {1430 400}
+  make name_net_s -orient R90 -name {Sum[5]} -origin {1220 400}
+  make name_net_s -orient R90 -name {Sum[4]} -origin {1020 390}
+  make name_net_s -orient R90 -name {Sum[3]} -origin {830 390}
+  make name_net_s -orient R90 -name {Sum[2]} -origin {640 390}
+  make output -orient R90 -name {Sum[0:7]} -origin {1010 730}
+  make name_net_s -orient R90 -name {A[0]} -origin {190 -40}
+  make name_net_s -orient R90 -name {A[1]} -origin {390 -40}
+  make name_net_s -orient R90 -name {A[2]} -origin {580 -50}
+  make name_net_s -orient R90 -name {A[3]} -origin {770 -40}
+  make name_net_s -orient R90 -name {A[4]} -origin {960 -60}
+  make name_net_s -orient R90 -name {A[5]} -origin {1160 -60}
+  make name_net_s -orient R90 -name {A[6]} -origin {1370 -50}
+  make name_net_s -orient R90 -name {A[7]} -origin {1560 -50}
+  make name_net_s -orient R90 -name {B[0]} -origin {280 -30}
+  make name_net_s -orient R90 -name {B[1]} -origin {480 -30}
+  make name_net_s -orient R90 -name {B[2]} -origin {670 -40}
+  make name_net_s -orient R90 -name {B[3]} -origin {850 -40}
+  make name_net_s -orient R90 -name {B[4]} -origin {1050 -50}
+  make name_net_s -orient R90 -name {B[5]} -origin {1250 -50}
+  make name_net_s -orient R90 -name {B[6]} -origin {1460 -80}
+  make name_net_s -orient R90 -name {B[7]} -origin {1660 -40}
+  make input -orient R90 -name {A[0:7]} -origin {620 -390}
+  make input -orient R90 -name {B[0:7]} -origin {1070 -380}
+  make_wire 320 210 350 210
+  make_wire 520 210 540 210
+  make_wire 710 210 730 210
+  make_wire 900 210 920 210
+  make_wire 1090 210 1120 210
+  make_wire 1290 210 1330 210
+  make_wire 1500 210 1530 210
+  make_wire 70 210 150 210
+  make_wire 1790 210 1700 210
+  make_wire 1570 100 1570 150
+  make_wire 860 100 860 150
+  make_wire 250 270 250 370
+  make_wire 450 270 450 380
+  make_wire 640 390 640 270
+  make_wire 830 390 830 270
+  make_wire 1020 390 1020 270
+  make_wire 1220 400 1220 270
+  make_wire 1430 400 1430 270
+  make_wire 1630 390 1630 270
+  make_wire 250 650 250 370
+  make_wire 1020 650 1010 650
+  make_wire 1220 650 1020 650
+  make_wire 1220 650 1220 400
+  make_wire 1430 650 1220 650
+  make_wire 1430 650 1630 650
+  make_wire 1430 650 1430 400
+  make_wire 830 650 830 390
+  make_wire 830 650 1010 650
+  make_wire 640 650 640 390
+  make_wire 640 650 830 650
+  make_wire 1020 650 1020 390
+  make_wire 450 650 640 650
+  make_wire 450 650 250 650
+  make_wire 450 650 450 380
+  make_wire 1010 650 1010 730
+  make_wire 1570 100 1560 100
+  make_wire 1250 -50 1250 150
+  make_wire 1050 -50 1050 150
+  make_wire 850 -40 850 100
+  make_wire 850 100 860 100
+  make_wire 480 -30 480 150
+  make_wire 1660 -40 1660 150
+  make_wire 1370 -50 1370 150
+  make_wire 190 -340 190 -40
+  make_wire 190 -40 190 150
+  make_wire 1560 -340 1560 -50
+  make_wire 1560 -50 1560 100
+  make_wire 390 -340 390 -40
+  make_wire 390 -340 190 -340
+  make_wire 390 -40 390 150
+  make_wire 580 -340 580 -50
+  make_wire 580 -340 390 -340
+  make_wire 580 -340 620 -340
+  make_wire 580 -50 580 150
+  make_wire 770 -340 620 -340
+  make_wire 960 -340 960 -60
+  make_wire 960 -340 770 -340
+  make_wire 960 -60 960 150
+  make_wire 1160 -340 1160 -60
+  make_wire 1160 -340 960 -340
+  make_wire 1160 -60 1160 150
+  make_wire 1370 -340 1160 -340
+  make_wire 1370 -340 1560 -340
+  make_wire 1370 -340 1370 -50
+  make_wire 280 -30 280 -380
+  make_wire 280 -30 280 150
+  make_wire 1660 -380 1660 -40
+  make_wire 1250 -50 1250 -380
+  make_wire 1250 -380 1070 -380
+  make_wire 1050 -380 1050 -50
+  make_wire 1050 -380 1070 -380
+  make_wire 850 -40 850 -380
+  make_wire 850 -380 1050 -380
+  make_wire 670 -380 670 -40
+  make_wire 670 -380 850 -380
+  make_wire 480 -380 670 -380
+  make_wire 480 -380 280 -380
+  make_wire 480 -30 480 -380
+  make_wire 620 -390 620 -340
+  make_wire 670 150 670 -40
+  make_wire 770 -40 770 -340
+  make_wire 770 -40 770 150
+  make_wire 1250 -380 1460 -380
+  make_wire 1460 -380 1660 -380
+  make_wire 1460 -380 1460 -80
+  make_wire 1460 150 1460 -80
+  make_wire 1630 650 1630 390
+}
+
