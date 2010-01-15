@@ -3,14 +3,14 @@
 proc SCHEMATIC_nand {} {
   make pmos -origin {390 270}
   make pmos -origin {560 270}
-  make global -orient RY -name VDD -origin {390 230}
-  make global -orient RY -name VDD -origin {560 230}
-  make global -name GND -origin {460 540}
   make input -name A -origin {180 330}
   make input -name B -origin {180 410}
   make nmos -W 2 -origin {460 420}
   make nmos -W 2 -origin {460 500}
   make output -name nandO -origin {650 340}
+  make global -orient RY -name vdd -origin {390 230}
+  make global -orient RY -name vdd -origin {560 230}
+  make global -name gnd -origin {460 540}
   make_wire 390 310 390 340
   make_wire 560 340 560 310
   make_wire 460 340 460 380
@@ -27,9 +27,9 @@ proc SCHEMATIC_nand {} {
   make_wire 350 500 350 320
   make_wire 350 320 500 320
   make_wire 500 320 500 270
+  make_wire 560 340 650 340
   make_wire 350 500 230 500
   make_wire 350 500 400 500
-  make_wire 560 340 650 340
 }
 
 proc ICON_nand args {

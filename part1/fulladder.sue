@@ -30,3 +30,17 @@ proc SCHEMATIC_fulladder {} {
   make_wire 770 240 770 370
 }
 
+proc ICON_fulladder args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-100 -40} -name Cin
+  icon_term -type output -origin {70 -40} -name Cout
+  icon_term -type output -origin {0 20} -orient R90X -name S
+  icon_term -type input -origin {-60 -100} -orient R90 -name A
+  icon_term -type input -origin {30 -100} -orient R90 -name B
+  icon_property -origin {-50 70} -type user -name name
+  icon_property -origin {-50 90} -type user -name M
+  icon_property -origin {-50 110} -type user -name dpc
+  icon_line -100 -100 -100 20 70 20 70 -100 -100 -100
+  icon_property -origin {-60 -40} -label {Full Adder}
+}
+

@@ -1,0 +1,699 @@
+| units: 1.0  tech: sue  format: MIT
+A A[7] input
+A A[6] input
+A A[5] input
+A A[4] input
+A A[3] input
+A A[2] input
+A A[1] input
+A A[0] input
+A B[7] input
+A B[6] input
+A B[5] input
+A B[4] input
+A B[3] input
+A B[2] input
+A B[1] input
+A B[0] input
+A Cin input
+A Cout output
+A Sum[7] output
+A Sum[6] output
+A Sum[5] output
+A Sum[4] output
+A Sum[3] output
+A Sum[2] output
+A Sum[1] output
+A Sum[0] output
+| begin fulladder 250 250
+| begin fulladder.nand 890 300
+| device fulladder.nand.pmos 390 270
+p fulladder.net_1 vdd net_2 24 200
+| device fulladder.nand.pmos_1 560 270
+p fulladder.net_3 vdd net_2 24 200
+| device fulladder.nand.nmos 460 420
+n fulladder.net_1 fulladder.nand.net_1 net_2 24 200
+| device fulladder.nand.nmos_1 460 500
+n fulladder.net_3 gnd fulladder.nand.net_1 24 200
+| end fulladder.nand
+| begin fulladder.halfadder 390 290
+| begin fulladder.halfadder.nand 320 400
+| device fulladder.halfadder.nand.pmos 390 270
+p A[0] vdd fulladder.net_1 24 200
+| device fulladder.halfadder.nand.pmos_1 560 270
+p B[0] vdd fulladder.net_1 24 200
+| device fulladder.halfadder.nand.nmos 460 420
+n A[0] fulladder.halfadder.nand.net_1 fulladder.net_1 24 200
+| device fulladder.halfadder.nand.nmos_1 460 500
+n B[0] gnd fulladder.halfadder.nand.net_1 24 200
+| end fulladder.halfadder.nand
+| begin fulladder.halfadder.xor2 330 190
+| begin fulladder.halfadder.xor2.nor 340 350
+| device fulladder.halfadder.xor2.nor.nmos 380 420
+n B[0] gnd fulladder.halfadder.xor2.net_1 24 100
+| device fulladder.halfadder.xor2.nor.nmos_1 530 420
+n A[0] gnd fulladder.halfadder.xor2.net_1 24 100
+| device fulladder.halfadder.xor2.nor.pmos 430 280
+p B[0] fulladder.halfadder.xor2.nor.net_1 fulladder.halfadder.xor2.net_1 24 400
+| device fulladder.halfadder.xor2.nor.pmos_1 430 200
+p A[0] vdd fulladder.halfadder.xor2.nor.net_1 24 400
+| end fulladder.halfadder.xor2.nor
+| device fulladder.halfadder.xor2.nmos 780 420
+n fulladder.halfadder.xor2.net_1 GND fulladder.net_2 24 100
+| device fulladder.halfadder.xor2.nmos_1 620 360
+n A[0] fulladder.halfadder.xor2.net_2 fulladder.net_2 24 200
+| device fulladder.halfadder.xor2.nmos_2 620 490
+n B[0] GND fulladder.halfadder.xor2.net_2 24 200
+| device fulladder.halfadder.xor2.pmos 710 240
+p fulladder.halfadder.xor2.net_1 fulladder.halfadder.xor2.net_3 fulladder.net_2 24 400
+| device fulladder.halfadder.xor2.pmos_1 640 130
+p A[0] VDD fulladder.halfadder.xor2.net_3 24 400
+| device fulladder.halfadder.xor2.pmos_2 800 130
+p B[0] VDD fulladder.halfadder.xor2.net_3 24 400
+| end fulladder.halfadder.xor2
+| end fulladder.halfadder
+| begin fulladder.halfadder_1 650 400
+| begin fulladder.halfadder_1.nand 320 400
+| device fulladder.halfadder_1.nand.pmos 390 270
+p fulladder.net_2 vdd fulladder.net_3 24 200
+| device fulladder.halfadder_1.nand.pmos_1 560 270
+p Cin vdd fulladder.net_3 24 200
+| device fulladder.halfadder_1.nand.nmos 460 420
+n fulladder.net_2 fulladder.halfadder_1.nand.net_1 fulladder.net_3 24 200
+| device fulladder.halfadder_1.nand.nmos_1 460 500
+n Cin gnd fulladder.halfadder_1.nand.net_1 24 200
+| end fulladder.halfadder_1.nand
+| begin fulladder.halfadder_1.xor2 330 190
+| begin fulladder.halfadder_1.xor2.nor 340 350
+| device fulladder.halfadder_1.xor2.nor.nmos 380 420
+n Cin gnd fulladder.halfadder_1.xor2.net_1 24 100
+| device fulladder.halfadder_1.xor2.nor.nmos_1 530 420
+n fulladder.net_2 gnd fulladder.halfadder_1.xor2.net_1 24 100
+| device fulladder.halfadder_1.xor2.nor.pmos 430 280
+p Cin fulladder.halfadder_1.xor2.nor.net_1 fulladder.halfadder_1.xor2.net_1 24 400
+| device fulladder.halfadder_1.xor2.nor.pmos_1 430 200
+p fulladder.net_2 vdd fulladder.halfadder_1.xor2.nor.net_1 24 400
+| end fulladder.halfadder_1.xor2.nor
+| device fulladder.halfadder_1.xor2.nmos 780 420
+n fulladder.halfadder_1.xor2.net_1 GND Sum[0] 24 100
+| device fulladder.halfadder_1.xor2.nmos_1 620 360
+n fulladder.net_2 fulladder.halfadder_1.xor2.net_2 Sum[0] 24 200
+| device fulladder.halfadder_1.xor2.nmos_2 620 490
+n Cin GND fulladder.halfadder_1.xor2.net_2 24 200
+| device fulladder.halfadder_1.xor2.pmos 710 240
+p fulladder.halfadder_1.xor2.net_1 fulladder.halfadder_1.xor2.net_3 Sum[0] 24 400
+| device fulladder.halfadder_1.xor2.pmos_1 640 130
+p fulladder.net_2 VDD fulladder.halfadder_1.xor2.net_3 24 400
+| device fulladder.halfadder_1.xor2.pmos_2 800 130
+p Cin VDD fulladder.halfadder_1.xor2.net_3 24 400
+| end fulladder.halfadder_1.xor2
+| end fulladder.halfadder_1
+| end fulladder
+| begin fulladder_1 450 250
+| begin fulladder_1.nand 890 300
+| device fulladder_1.nand.pmos 390 270
+p fulladder_1.net_1 vdd net_7 24 200
+| device fulladder_1.nand.pmos_1 560 270
+p fulladder_1.net_3 vdd net_7 24 200
+| device fulladder_1.nand.nmos 460 420
+n fulladder_1.net_1 fulladder_1.nand.net_1 net_7 24 200
+| device fulladder_1.nand.nmos_1 460 500
+n fulladder_1.net_3 gnd fulladder_1.nand.net_1 24 200
+| end fulladder_1.nand
+| begin fulladder_1.halfadder 390 290
+| begin fulladder_1.halfadder.nand 320 400
+| device fulladder_1.halfadder.nand.pmos 390 270
+p A[1] vdd fulladder_1.net_1 24 200
+| device fulladder_1.halfadder.nand.pmos_1 560 270
+p B[1] vdd fulladder_1.net_1 24 200
+| device fulladder_1.halfadder.nand.nmos 460 420
+n A[1] fulladder_1.halfadder.nand.net_1 fulladder_1.net_1 24 200
+| device fulladder_1.halfadder.nand.nmos_1 460 500
+n B[1] gnd fulladder_1.halfadder.nand.net_1 24 200
+| end fulladder_1.halfadder.nand
+| begin fulladder_1.halfadder.xor2 330 190
+| begin fulladder_1.halfadder.xor2.nor 340 350
+| device fulladder_1.halfadder.xor2.nor.nmos 380 420
+n B[1] gnd fulladder_1.halfadder.xor2.net_1 24 100
+| device fulladder_1.halfadder.xor2.nor.nmos_1 530 420
+n A[1] gnd fulladder_1.halfadder.xor2.net_1 24 100
+| device fulladder_1.halfadder.xor2.nor.pmos 430 280
+p B[1] fulladder_1.halfadder.xor2.nor.net_1 fulladder_1.halfadder.xor2.net_1 24 400
+| device fulladder_1.halfadder.xor2.nor.pmos_1 430 200
+p A[1] vdd fulladder_1.halfadder.xor2.nor.net_1 24 400
+| end fulladder_1.halfadder.xor2.nor
+| device fulladder_1.halfadder.xor2.nmos 780 420
+n fulladder_1.halfadder.xor2.net_1 GND fulladder_1.net_2 24 100
+| device fulladder_1.halfadder.xor2.nmos_1 620 360
+n A[1] fulladder_1.halfadder.xor2.net_2 fulladder_1.net_2 24 200
+| device fulladder_1.halfadder.xor2.nmos_2 620 490
+n B[1] GND fulladder_1.halfadder.xor2.net_2 24 200
+| device fulladder_1.halfadder.xor2.pmos 710 240
+p fulladder_1.halfadder.xor2.net_1 fulladder_1.halfadder.xor2.net_3 fulladder_1.net_2 24 400
+| device fulladder_1.halfadder.xor2.pmos_1 640 130
+p A[1] VDD fulladder_1.halfadder.xor2.net_3 24 400
+| device fulladder_1.halfadder.xor2.pmos_2 800 130
+p B[1] VDD fulladder_1.halfadder.xor2.net_3 24 400
+| end fulladder_1.halfadder.xor2
+| end fulladder_1.halfadder
+| begin fulladder_1.halfadder_1 650 400
+| begin fulladder_1.halfadder_1.nand 320 400
+| device fulladder_1.halfadder_1.nand.pmos 390 270
+p fulladder_1.net_2 vdd fulladder_1.net_3 24 200
+| device fulladder_1.halfadder_1.nand.pmos_1 560 270
+p net_2 vdd fulladder_1.net_3 24 200
+| device fulladder_1.halfadder_1.nand.nmos 460 420
+n fulladder_1.net_2 fulladder_1.halfadder_1.nand.net_1 fulladder_1.net_3 24 200
+| device fulladder_1.halfadder_1.nand.nmos_1 460 500
+n net_2 gnd fulladder_1.halfadder_1.nand.net_1 24 200
+| end fulladder_1.halfadder_1.nand
+| begin fulladder_1.halfadder_1.xor2 330 190
+| begin fulladder_1.halfadder_1.xor2.nor 340 350
+| device fulladder_1.halfadder_1.xor2.nor.nmos 380 420
+n net_2 gnd fulladder_1.halfadder_1.xor2.net_1 24 100
+| device fulladder_1.halfadder_1.xor2.nor.nmos_1 530 420
+n fulladder_1.net_2 gnd fulladder_1.halfadder_1.xor2.net_1 24 100
+| device fulladder_1.halfadder_1.xor2.nor.pmos 430 280
+p net_2 fulladder_1.halfadder_1.xor2.nor.net_1 fulladder_1.halfadder_1.xor2.net_1 24 400
+| device fulladder_1.halfadder_1.xor2.nor.pmos_1 430 200
+p fulladder_1.net_2 vdd fulladder_1.halfadder_1.xor2.nor.net_1 24 400
+| end fulladder_1.halfadder_1.xor2.nor
+| device fulladder_1.halfadder_1.xor2.nmos 780 420
+n fulladder_1.halfadder_1.xor2.net_1 GND Sum[1] 24 100
+| device fulladder_1.halfadder_1.xor2.nmos_1 620 360
+n fulladder_1.net_2 fulladder_1.halfadder_1.xor2.net_2 Sum[1] 24 200
+| device fulladder_1.halfadder_1.xor2.nmos_2 620 490
+n net_2 GND fulladder_1.halfadder_1.xor2.net_2 24 200
+| device fulladder_1.halfadder_1.xor2.pmos 710 240
+p fulladder_1.halfadder_1.xor2.net_1 fulladder_1.halfadder_1.xor2.net_3 Sum[1] 24 400
+| device fulladder_1.halfadder_1.xor2.pmos_1 640 130
+p fulladder_1.net_2 VDD fulladder_1.halfadder_1.xor2.net_3 24 400
+| device fulladder_1.halfadder_1.xor2.pmos_2 800 130
+p net_2 VDD fulladder_1.halfadder_1.xor2.net_3 24 400
+| end fulladder_1.halfadder_1.xor2
+| end fulladder_1.halfadder_1
+| end fulladder_1
+| begin fulladder_2 640 250
+| begin fulladder_2.nand 890 300
+| device fulladder_2.nand.pmos 390 270
+p fulladder_2.net_1 vdd net_1 24 200
+| device fulladder_2.nand.pmos_1 560 270
+p fulladder_2.net_3 vdd net_1 24 200
+| device fulladder_2.nand.nmos 460 420
+n fulladder_2.net_1 fulladder_2.nand.net_1 net_1 24 200
+| device fulladder_2.nand.nmos_1 460 500
+n fulladder_2.net_3 gnd fulladder_2.nand.net_1 24 200
+| end fulladder_2.nand
+| begin fulladder_2.halfadder 390 290
+| begin fulladder_2.halfadder.nand 320 400
+| device fulladder_2.halfadder.nand.pmos 390 270
+p A[2] vdd fulladder_2.net_1 24 200
+| device fulladder_2.halfadder.nand.pmos_1 560 270
+p B[2] vdd fulladder_2.net_1 24 200
+| device fulladder_2.halfadder.nand.nmos 460 420
+n A[2] fulladder_2.halfadder.nand.net_1 fulladder_2.net_1 24 200
+| device fulladder_2.halfadder.nand.nmos_1 460 500
+n B[2] gnd fulladder_2.halfadder.nand.net_1 24 200
+| end fulladder_2.halfadder.nand
+| begin fulladder_2.halfadder.xor2 330 190
+| begin fulladder_2.halfadder.xor2.nor 340 350
+| device fulladder_2.halfadder.xor2.nor.nmos 380 420
+n B[2] gnd fulladder_2.halfadder.xor2.net_1 24 100
+| device fulladder_2.halfadder.xor2.nor.nmos_1 530 420
+n A[2] gnd fulladder_2.halfadder.xor2.net_1 24 100
+| device fulladder_2.halfadder.xor2.nor.pmos 430 280
+p B[2] fulladder_2.halfadder.xor2.nor.net_1 fulladder_2.halfadder.xor2.net_1 24 400
+| device fulladder_2.halfadder.xor2.nor.pmos_1 430 200
+p A[2] vdd fulladder_2.halfadder.xor2.nor.net_1 24 400
+| end fulladder_2.halfadder.xor2.nor
+| device fulladder_2.halfadder.xor2.nmos 780 420
+n fulladder_2.halfadder.xor2.net_1 GND fulladder_2.net_2 24 100
+| device fulladder_2.halfadder.xor2.nmos_1 620 360
+n A[2] fulladder_2.halfadder.xor2.net_2 fulladder_2.net_2 24 200
+| device fulladder_2.halfadder.xor2.nmos_2 620 490
+n B[2] GND fulladder_2.halfadder.xor2.net_2 24 200
+| device fulladder_2.halfadder.xor2.pmos 710 240
+p fulladder_2.halfadder.xor2.net_1 fulladder_2.halfadder.xor2.net_3 fulladder_2.net_2 24 400
+| device fulladder_2.halfadder.xor2.pmos_1 640 130
+p A[2] VDD fulladder_2.halfadder.xor2.net_3 24 400
+| device fulladder_2.halfadder.xor2.pmos_2 800 130
+p B[2] VDD fulladder_2.halfadder.xor2.net_3 24 400
+| end fulladder_2.halfadder.xor2
+| end fulladder_2.halfadder
+| begin fulladder_2.halfadder_1 650 400
+| begin fulladder_2.halfadder_1.nand 320 400
+| device fulladder_2.halfadder_1.nand.pmos 390 270
+p fulladder_2.net_2 vdd fulladder_2.net_3 24 200
+| device fulladder_2.halfadder_1.nand.pmos_1 560 270
+p net_7 vdd fulladder_2.net_3 24 200
+| device fulladder_2.halfadder_1.nand.nmos 460 420
+n fulladder_2.net_2 fulladder_2.halfadder_1.nand.net_1 fulladder_2.net_3 24 200
+| device fulladder_2.halfadder_1.nand.nmos_1 460 500
+n net_7 gnd fulladder_2.halfadder_1.nand.net_1 24 200
+| end fulladder_2.halfadder_1.nand
+| begin fulladder_2.halfadder_1.xor2 330 190
+| begin fulladder_2.halfadder_1.xor2.nor 340 350
+| device fulladder_2.halfadder_1.xor2.nor.nmos 380 420
+n net_7 gnd fulladder_2.halfadder_1.xor2.net_1 24 100
+| device fulladder_2.halfadder_1.xor2.nor.nmos_1 530 420
+n fulladder_2.net_2 gnd fulladder_2.halfadder_1.xor2.net_1 24 100
+| device fulladder_2.halfadder_1.xor2.nor.pmos 430 280
+p net_7 fulladder_2.halfadder_1.xor2.nor.net_1 fulladder_2.halfadder_1.xor2.net_1 24 400
+| device fulladder_2.halfadder_1.xor2.nor.pmos_1 430 200
+p fulladder_2.net_2 vdd fulladder_2.halfadder_1.xor2.nor.net_1 24 400
+| end fulladder_2.halfadder_1.xor2.nor
+| device fulladder_2.halfadder_1.xor2.nmos 780 420
+n fulladder_2.halfadder_1.xor2.net_1 GND Sum[2] 24 100
+| device fulladder_2.halfadder_1.xor2.nmos_1 620 360
+n fulladder_2.net_2 fulladder_2.halfadder_1.xor2.net_2 Sum[2] 24 200
+| device fulladder_2.halfadder_1.xor2.nmos_2 620 490
+n net_7 GND fulladder_2.halfadder_1.xor2.net_2 24 200
+| device fulladder_2.halfadder_1.xor2.pmos 710 240
+p fulladder_2.halfadder_1.xor2.net_1 fulladder_2.halfadder_1.xor2.net_3 Sum[2] 24 400
+| device fulladder_2.halfadder_1.xor2.pmos_1 640 130
+p fulladder_2.net_2 VDD fulladder_2.halfadder_1.xor2.net_3 24 400
+| device fulladder_2.halfadder_1.xor2.pmos_2 800 130
+p net_7 VDD fulladder_2.halfadder_1.xor2.net_3 24 400
+| end fulladder_2.halfadder_1.xor2
+| end fulladder_2.halfadder_1
+| end fulladder_2
+| begin fulladder_3 830 250
+| begin fulladder_3.nand 890 300
+| device fulladder_3.nand.pmos 390 270
+p fulladder_3.net_1 vdd net_5 24 200
+| device fulladder_3.nand.pmos_1 560 270
+p fulladder_3.net_3 vdd net_5 24 200
+| device fulladder_3.nand.nmos 460 420
+n fulladder_3.net_1 fulladder_3.nand.net_1 net_5 24 200
+| device fulladder_3.nand.nmos_1 460 500
+n fulladder_3.net_3 gnd fulladder_3.nand.net_1 24 200
+| end fulladder_3.nand
+| begin fulladder_3.halfadder 390 290
+| begin fulladder_3.halfadder.nand 320 400
+| device fulladder_3.halfadder.nand.pmos 390 270
+p A[3] vdd fulladder_3.net_1 24 200
+| device fulladder_3.halfadder.nand.pmos_1 560 270
+p B[3] vdd fulladder_3.net_1 24 200
+| device fulladder_3.halfadder.nand.nmos 460 420
+n A[3] fulladder_3.halfadder.nand.net_1 fulladder_3.net_1 24 200
+| device fulladder_3.halfadder.nand.nmos_1 460 500
+n B[3] gnd fulladder_3.halfadder.nand.net_1 24 200
+| end fulladder_3.halfadder.nand
+| begin fulladder_3.halfadder.xor2 330 190
+| begin fulladder_3.halfadder.xor2.nor 340 350
+| device fulladder_3.halfadder.xor2.nor.nmos 380 420
+n B[3] gnd fulladder_3.halfadder.xor2.net_1 24 100
+| device fulladder_3.halfadder.xor2.nor.nmos_1 530 420
+n A[3] gnd fulladder_3.halfadder.xor2.net_1 24 100
+| device fulladder_3.halfadder.xor2.nor.pmos 430 280
+p B[3] fulladder_3.halfadder.xor2.nor.net_1 fulladder_3.halfadder.xor2.net_1 24 400
+| device fulladder_3.halfadder.xor2.nor.pmos_1 430 200
+p A[3] vdd fulladder_3.halfadder.xor2.nor.net_1 24 400
+| end fulladder_3.halfadder.xor2.nor
+| device fulladder_3.halfadder.xor2.nmos 780 420
+n fulladder_3.halfadder.xor2.net_1 GND fulladder_3.net_2 24 100
+| device fulladder_3.halfadder.xor2.nmos_1 620 360
+n A[3] fulladder_3.halfadder.xor2.net_2 fulladder_3.net_2 24 200
+| device fulladder_3.halfadder.xor2.nmos_2 620 490
+n B[3] GND fulladder_3.halfadder.xor2.net_2 24 200
+| device fulladder_3.halfadder.xor2.pmos 710 240
+p fulladder_3.halfadder.xor2.net_1 fulladder_3.halfadder.xor2.net_3 fulladder_3.net_2 24 400
+| device fulladder_3.halfadder.xor2.pmos_1 640 130
+p A[3] VDD fulladder_3.halfadder.xor2.net_3 24 400
+| device fulladder_3.halfadder.xor2.pmos_2 800 130
+p B[3] VDD fulladder_3.halfadder.xor2.net_3 24 400
+| end fulladder_3.halfadder.xor2
+| end fulladder_3.halfadder
+| begin fulladder_3.halfadder_1 650 400
+| begin fulladder_3.halfadder_1.nand 320 400
+| device fulladder_3.halfadder_1.nand.pmos 390 270
+p fulladder_3.net_2 vdd fulladder_3.net_3 24 200
+| device fulladder_3.halfadder_1.nand.pmos_1 560 270
+p net_1 vdd fulladder_3.net_3 24 200
+| device fulladder_3.halfadder_1.nand.nmos 460 420
+n fulladder_3.net_2 fulladder_3.halfadder_1.nand.net_1 fulladder_3.net_3 24 200
+| device fulladder_3.halfadder_1.nand.nmos_1 460 500
+n net_1 gnd fulladder_3.halfadder_1.nand.net_1 24 200
+| end fulladder_3.halfadder_1.nand
+| begin fulladder_3.halfadder_1.xor2 330 190
+| begin fulladder_3.halfadder_1.xor2.nor 340 350
+| device fulladder_3.halfadder_1.xor2.nor.nmos 380 420
+n net_1 gnd fulladder_3.halfadder_1.xor2.net_1 24 100
+| device fulladder_3.halfadder_1.xor2.nor.nmos_1 530 420
+n fulladder_3.net_2 gnd fulladder_3.halfadder_1.xor2.net_1 24 100
+| device fulladder_3.halfadder_1.xor2.nor.pmos 430 280
+p net_1 fulladder_3.halfadder_1.xor2.nor.net_1 fulladder_3.halfadder_1.xor2.net_1 24 400
+| device fulladder_3.halfadder_1.xor2.nor.pmos_1 430 200
+p fulladder_3.net_2 vdd fulladder_3.halfadder_1.xor2.nor.net_1 24 400
+| end fulladder_3.halfadder_1.xor2.nor
+| device fulladder_3.halfadder_1.xor2.nmos 780 420
+n fulladder_3.halfadder_1.xor2.net_1 GND Sum[3] 24 100
+| device fulladder_3.halfadder_1.xor2.nmos_1 620 360
+n fulladder_3.net_2 fulladder_3.halfadder_1.xor2.net_2 Sum[3] 24 200
+| device fulladder_3.halfadder_1.xor2.nmos_2 620 490
+n net_1 GND fulladder_3.halfadder_1.xor2.net_2 24 200
+| device fulladder_3.halfadder_1.xor2.pmos 710 240
+p fulladder_3.halfadder_1.xor2.net_1 fulladder_3.halfadder_1.xor2.net_3 Sum[3] 24 400
+| device fulladder_3.halfadder_1.xor2.pmos_1 640 130
+p fulladder_3.net_2 VDD fulladder_3.halfadder_1.xor2.net_3 24 400
+| device fulladder_3.halfadder_1.xor2.pmos_2 800 130
+p net_1 VDD fulladder_3.halfadder_1.xor2.net_3 24 400
+| end fulladder_3.halfadder_1.xor2
+| end fulladder_3.halfadder_1
+| end fulladder_3
+| begin fulladder_4 1020 250
+| begin fulladder_4.nand 890 300
+| device fulladder_4.nand.pmos 390 270
+p fulladder_4.net_1 vdd net_3 24 200
+| device fulladder_4.nand.pmos_1 560 270
+p fulladder_4.net_3 vdd net_3 24 200
+| device fulladder_4.nand.nmos 460 420
+n fulladder_4.net_1 fulladder_4.nand.net_1 net_3 24 200
+| device fulladder_4.nand.nmos_1 460 500
+n fulladder_4.net_3 gnd fulladder_4.nand.net_1 24 200
+| end fulladder_4.nand
+| begin fulladder_4.halfadder 390 290
+| begin fulladder_4.halfadder.nand 320 400
+| device fulladder_4.halfadder.nand.pmos 390 270
+p A[4] vdd fulladder_4.net_1 24 200
+| device fulladder_4.halfadder.nand.pmos_1 560 270
+p B[4] vdd fulladder_4.net_1 24 200
+| device fulladder_4.halfadder.nand.nmos 460 420
+n A[4] fulladder_4.halfadder.nand.net_1 fulladder_4.net_1 24 200
+| device fulladder_4.halfadder.nand.nmos_1 460 500
+n B[4] gnd fulladder_4.halfadder.nand.net_1 24 200
+| end fulladder_4.halfadder.nand
+| begin fulladder_4.halfadder.xor2 330 190
+| begin fulladder_4.halfadder.xor2.nor 340 350
+| device fulladder_4.halfadder.xor2.nor.nmos 380 420
+n B[4] gnd fulladder_4.halfadder.xor2.net_1 24 100
+| device fulladder_4.halfadder.xor2.nor.nmos_1 530 420
+n A[4] gnd fulladder_4.halfadder.xor2.net_1 24 100
+| device fulladder_4.halfadder.xor2.nor.pmos 430 280
+p B[4] fulladder_4.halfadder.xor2.nor.net_1 fulladder_4.halfadder.xor2.net_1 24 400
+| device fulladder_4.halfadder.xor2.nor.pmos_1 430 200
+p A[4] vdd fulladder_4.halfadder.xor2.nor.net_1 24 400
+| end fulladder_4.halfadder.xor2.nor
+| device fulladder_4.halfadder.xor2.nmos 780 420
+n fulladder_4.halfadder.xor2.net_1 GND fulladder_4.net_2 24 100
+| device fulladder_4.halfadder.xor2.nmos_1 620 360
+n A[4] fulladder_4.halfadder.xor2.net_2 fulladder_4.net_2 24 200
+| device fulladder_4.halfadder.xor2.nmos_2 620 490
+n B[4] GND fulladder_4.halfadder.xor2.net_2 24 200
+| device fulladder_4.halfadder.xor2.pmos 710 240
+p fulladder_4.halfadder.xor2.net_1 fulladder_4.halfadder.xor2.net_3 fulladder_4.net_2 24 400
+| device fulladder_4.halfadder.xor2.pmos_1 640 130
+p A[4] VDD fulladder_4.halfadder.xor2.net_3 24 400
+| device fulladder_4.halfadder.xor2.pmos_2 800 130
+p B[4] VDD fulladder_4.halfadder.xor2.net_3 24 400
+| end fulladder_4.halfadder.xor2
+| end fulladder_4.halfadder
+| begin fulladder_4.halfadder_1 650 400
+| begin fulladder_4.halfadder_1.nand 320 400
+| device fulladder_4.halfadder_1.nand.pmos 390 270
+p fulladder_4.net_2 vdd fulladder_4.net_3 24 200
+| device fulladder_4.halfadder_1.nand.pmos_1 560 270
+p net_5 vdd fulladder_4.net_3 24 200
+| device fulladder_4.halfadder_1.nand.nmos 460 420
+n fulladder_4.net_2 fulladder_4.halfadder_1.nand.net_1 fulladder_4.net_3 24 200
+| device fulladder_4.halfadder_1.nand.nmos_1 460 500
+n net_5 gnd fulladder_4.halfadder_1.nand.net_1 24 200
+| end fulladder_4.halfadder_1.nand
+| begin fulladder_4.halfadder_1.xor2 330 190
+| begin fulladder_4.halfadder_1.xor2.nor 340 350
+| device fulladder_4.halfadder_1.xor2.nor.nmos 380 420
+n net_5 gnd fulladder_4.halfadder_1.xor2.net_1 24 100
+| device fulladder_4.halfadder_1.xor2.nor.nmos_1 530 420
+n fulladder_4.net_2 gnd fulladder_4.halfadder_1.xor2.net_1 24 100
+| device fulladder_4.halfadder_1.xor2.nor.pmos 430 280
+p net_5 fulladder_4.halfadder_1.xor2.nor.net_1 fulladder_4.halfadder_1.xor2.net_1 24 400
+| device fulladder_4.halfadder_1.xor2.nor.pmos_1 430 200
+p fulladder_4.net_2 vdd fulladder_4.halfadder_1.xor2.nor.net_1 24 400
+| end fulladder_4.halfadder_1.xor2.nor
+| device fulladder_4.halfadder_1.xor2.nmos 780 420
+n fulladder_4.halfadder_1.xor2.net_1 GND Sum[4] 24 100
+| device fulladder_4.halfadder_1.xor2.nmos_1 620 360
+n fulladder_4.net_2 fulladder_4.halfadder_1.xor2.net_2 Sum[4] 24 200
+| device fulladder_4.halfadder_1.xor2.nmos_2 620 490
+n net_5 GND fulladder_4.halfadder_1.xor2.net_2 24 200
+| device fulladder_4.halfadder_1.xor2.pmos 710 240
+p fulladder_4.halfadder_1.xor2.net_1 fulladder_4.halfadder_1.xor2.net_3 Sum[4] 24 400
+| device fulladder_4.halfadder_1.xor2.pmos_1 640 130
+p fulladder_4.net_2 VDD fulladder_4.halfadder_1.xor2.net_3 24 400
+| device fulladder_4.halfadder_1.xor2.pmos_2 800 130
+p net_5 VDD fulladder_4.halfadder_1.xor2.net_3 24 400
+| end fulladder_4.halfadder_1.xor2
+| end fulladder_4.halfadder_1
+| end fulladder_4
+| begin fulladder_5 1220 250
+| begin fulladder_5.nand 890 300
+| device fulladder_5.nand.pmos 390 270
+p fulladder_5.net_1 vdd net_6 24 200
+| device fulladder_5.nand.pmos_1 560 270
+p fulladder_5.net_3 vdd net_6 24 200
+| device fulladder_5.nand.nmos 460 420
+n fulladder_5.net_1 fulladder_5.nand.net_1 net_6 24 200
+| device fulladder_5.nand.nmos_1 460 500
+n fulladder_5.net_3 gnd fulladder_5.nand.net_1 24 200
+| end fulladder_5.nand
+| begin fulladder_5.halfadder 390 290
+| begin fulladder_5.halfadder.nand 320 400
+| device fulladder_5.halfadder.nand.pmos 390 270
+p A[5] vdd fulladder_5.net_1 24 200
+| device fulladder_5.halfadder.nand.pmos_1 560 270
+p B[5] vdd fulladder_5.net_1 24 200
+| device fulladder_5.halfadder.nand.nmos 460 420
+n A[5] fulladder_5.halfadder.nand.net_1 fulladder_5.net_1 24 200
+| device fulladder_5.halfadder.nand.nmos_1 460 500
+n B[5] gnd fulladder_5.halfadder.nand.net_1 24 200
+| end fulladder_5.halfadder.nand
+| begin fulladder_5.halfadder.xor2 330 190
+| begin fulladder_5.halfadder.xor2.nor 340 350
+| device fulladder_5.halfadder.xor2.nor.nmos 380 420
+n B[5] gnd fulladder_5.halfadder.xor2.net_1 24 100
+| device fulladder_5.halfadder.xor2.nor.nmos_1 530 420
+n A[5] gnd fulladder_5.halfadder.xor2.net_1 24 100
+| device fulladder_5.halfadder.xor2.nor.pmos 430 280
+p B[5] fulladder_5.halfadder.xor2.nor.net_1 fulladder_5.halfadder.xor2.net_1 24 400
+| device fulladder_5.halfadder.xor2.nor.pmos_1 430 200
+p A[5] vdd fulladder_5.halfadder.xor2.nor.net_1 24 400
+| end fulladder_5.halfadder.xor2.nor
+| device fulladder_5.halfadder.xor2.nmos 780 420
+n fulladder_5.halfadder.xor2.net_1 GND fulladder_5.net_2 24 100
+| device fulladder_5.halfadder.xor2.nmos_1 620 360
+n A[5] fulladder_5.halfadder.xor2.net_2 fulladder_5.net_2 24 200
+| device fulladder_5.halfadder.xor2.nmos_2 620 490
+n B[5] GND fulladder_5.halfadder.xor2.net_2 24 200
+| device fulladder_5.halfadder.xor2.pmos 710 240
+p fulladder_5.halfadder.xor2.net_1 fulladder_5.halfadder.xor2.net_3 fulladder_5.net_2 24 400
+| device fulladder_5.halfadder.xor2.pmos_1 640 130
+p A[5] VDD fulladder_5.halfadder.xor2.net_3 24 400
+| device fulladder_5.halfadder.xor2.pmos_2 800 130
+p B[5] VDD fulladder_5.halfadder.xor2.net_3 24 400
+| end fulladder_5.halfadder.xor2
+| end fulladder_5.halfadder
+| begin fulladder_5.halfadder_1 650 400
+| begin fulladder_5.halfadder_1.nand 320 400
+| device fulladder_5.halfadder_1.nand.pmos 390 270
+p fulladder_5.net_2 vdd fulladder_5.net_3 24 200
+| device fulladder_5.halfadder_1.nand.pmos_1 560 270
+p net_3 vdd fulladder_5.net_3 24 200
+| device fulladder_5.halfadder_1.nand.nmos 460 420
+n fulladder_5.net_2 fulladder_5.halfadder_1.nand.net_1 fulladder_5.net_3 24 200
+| device fulladder_5.halfadder_1.nand.nmos_1 460 500
+n net_3 gnd fulladder_5.halfadder_1.nand.net_1 24 200
+| end fulladder_5.halfadder_1.nand
+| begin fulladder_5.halfadder_1.xor2 330 190
+| begin fulladder_5.halfadder_1.xor2.nor 340 350
+| device fulladder_5.halfadder_1.xor2.nor.nmos 380 420
+n net_3 gnd fulladder_5.halfadder_1.xor2.net_1 24 100
+| device fulladder_5.halfadder_1.xor2.nor.nmos_1 530 420
+n fulladder_5.net_2 gnd fulladder_5.halfadder_1.xor2.net_1 24 100
+| device fulladder_5.halfadder_1.xor2.nor.pmos 430 280
+p net_3 fulladder_5.halfadder_1.xor2.nor.net_1 fulladder_5.halfadder_1.xor2.net_1 24 400
+| device fulladder_5.halfadder_1.xor2.nor.pmos_1 430 200
+p fulladder_5.net_2 vdd fulladder_5.halfadder_1.xor2.nor.net_1 24 400
+| end fulladder_5.halfadder_1.xor2.nor
+| device fulladder_5.halfadder_1.xor2.nmos 780 420
+n fulladder_5.halfadder_1.xor2.net_1 GND Sum[5] 24 100
+| device fulladder_5.halfadder_1.xor2.nmos_1 620 360
+n fulladder_5.net_2 fulladder_5.halfadder_1.xor2.net_2 Sum[5] 24 200
+| device fulladder_5.halfadder_1.xor2.nmos_2 620 490
+n net_3 GND fulladder_5.halfadder_1.xor2.net_2 24 200
+| device fulladder_5.halfadder_1.xor2.pmos 710 240
+p fulladder_5.halfadder_1.xor2.net_1 fulladder_5.halfadder_1.xor2.net_3 Sum[5] 24 400
+| device fulladder_5.halfadder_1.xor2.pmos_1 640 130
+p fulladder_5.net_2 VDD fulladder_5.halfadder_1.xor2.net_3 24 400
+| device fulladder_5.halfadder_1.xor2.pmos_2 800 130
+p net_3 VDD fulladder_5.halfadder_1.xor2.net_3 24 400
+| end fulladder_5.halfadder_1.xor2
+| end fulladder_5.halfadder_1
+| end fulladder_5
+| begin fulladder_6 1430 250
+| begin fulladder_6.nand 890 300
+| device fulladder_6.nand.pmos 390 270
+p fulladder_6.net_1 vdd net_4 24 200
+| device fulladder_6.nand.pmos_1 560 270
+p fulladder_6.net_3 vdd net_4 24 200
+| device fulladder_6.nand.nmos 460 420
+n fulladder_6.net_1 fulladder_6.nand.net_1 net_4 24 200
+| device fulladder_6.nand.nmos_1 460 500
+n fulladder_6.net_3 gnd fulladder_6.nand.net_1 24 200
+| end fulladder_6.nand
+| begin fulladder_6.halfadder 390 290
+| begin fulladder_6.halfadder.nand 320 400
+| device fulladder_6.halfadder.nand.pmos 390 270
+p A[6] vdd fulladder_6.net_1 24 200
+| device fulladder_6.halfadder.nand.pmos_1 560 270
+p B[6] vdd fulladder_6.net_1 24 200
+| device fulladder_6.halfadder.nand.nmos 460 420
+n A[6] fulladder_6.halfadder.nand.net_1 fulladder_6.net_1 24 200
+| device fulladder_6.halfadder.nand.nmos_1 460 500
+n B[6] gnd fulladder_6.halfadder.nand.net_1 24 200
+| end fulladder_6.halfadder.nand
+| begin fulladder_6.halfadder.xor2 330 190
+| begin fulladder_6.halfadder.xor2.nor 340 350
+| device fulladder_6.halfadder.xor2.nor.nmos 380 420
+n B[6] gnd fulladder_6.halfadder.xor2.net_1 24 100
+| device fulladder_6.halfadder.xor2.nor.nmos_1 530 420
+n A[6] gnd fulladder_6.halfadder.xor2.net_1 24 100
+| device fulladder_6.halfadder.xor2.nor.pmos 430 280
+p B[6] fulladder_6.halfadder.xor2.nor.net_1 fulladder_6.halfadder.xor2.net_1 24 400
+| device fulladder_6.halfadder.xor2.nor.pmos_1 430 200
+p A[6] vdd fulladder_6.halfadder.xor2.nor.net_1 24 400
+| end fulladder_6.halfadder.xor2.nor
+| device fulladder_6.halfadder.xor2.nmos 780 420
+n fulladder_6.halfadder.xor2.net_1 GND fulladder_6.net_2 24 100
+| device fulladder_6.halfadder.xor2.nmos_1 620 360
+n A[6] fulladder_6.halfadder.xor2.net_2 fulladder_6.net_2 24 200
+| device fulladder_6.halfadder.xor2.nmos_2 620 490
+n B[6] GND fulladder_6.halfadder.xor2.net_2 24 200
+| device fulladder_6.halfadder.xor2.pmos 710 240
+p fulladder_6.halfadder.xor2.net_1 fulladder_6.halfadder.xor2.net_3 fulladder_6.net_2 24 400
+| device fulladder_6.halfadder.xor2.pmos_1 640 130
+p A[6] VDD fulladder_6.halfadder.xor2.net_3 24 400
+| device fulladder_6.halfadder.xor2.pmos_2 800 130
+p B[6] VDD fulladder_6.halfadder.xor2.net_3 24 400
+| end fulladder_6.halfadder.xor2
+| end fulladder_6.halfadder
+| begin fulladder_6.halfadder_1 650 400
+| begin fulladder_6.halfadder_1.nand 320 400
+| device fulladder_6.halfadder_1.nand.pmos 390 270
+p fulladder_6.net_2 vdd fulladder_6.net_3 24 200
+| device fulladder_6.halfadder_1.nand.pmos_1 560 270
+p net_6 vdd fulladder_6.net_3 24 200
+| device fulladder_6.halfadder_1.nand.nmos 460 420
+n fulladder_6.net_2 fulladder_6.halfadder_1.nand.net_1 fulladder_6.net_3 24 200
+| device fulladder_6.halfadder_1.nand.nmos_1 460 500
+n net_6 gnd fulladder_6.halfadder_1.nand.net_1 24 200
+| end fulladder_6.halfadder_1.nand
+| begin fulladder_6.halfadder_1.xor2 330 190
+| begin fulladder_6.halfadder_1.xor2.nor 340 350
+| device fulladder_6.halfadder_1.xor2.nor.nmos 380 420
+n net_6 gnd fulladder_6.halfadder_1.xor2.net_1 24 100
+| device fulladder_6.halfadder_1.xor2.nor.nmos_1 530 420
+n fulladder_6.net_2 gnd fulladder_6.halfadder_1.xor2.net_1 24 100
+| device fulladder_6.halfadder_1.xor2.nor.pmos 430 280
+p net_6 fulladder_6.halfadder_1.xor2.nor.net_1 fulladder_6.halfadder_1.xor2.net_1 24 400
+| device fulladder_6.halfadder_1.xor2.nor.pmos_1 430 200
+p fulladder_6.net_2 vdd fulladder_6.halfadder_1.xor2.nor.net_1 24 400
+| end fulladder_6.halfadder_1.xor2.nor
+| device fulladder_6.halfadder_1.xor2.nmos 780 420
+n fulladder_6.halfadder_1.xor2.net_1 GND Sum[6] 24 100
+| device fulladder_6.halfadder_1.xor2.nmos_1 620 360
+n fulladder_6.net_2 fulladder_6.halfadder_1.xor2.net_2 Sum[6] 24 200
+| device fulladder_6.halfadder_1.xor2.nmos_2 620 490
+n net_6 GND fulladder_6.halfadder_1.xor2.net_2 24 200
+| device fulladder_6.halfadder_1.xor2.pmos 710 240
+p fulladder_6.halfadder_1.xor2.net_1 fulladder_6.halfadder_1.xor2.net_3 Sum[6] 24 400
+| device fulladder_6.halfadder_1.xor2.pmos_1 640 130
+p fulladder_6.net_2 VDD fulladder_6.halfadder_1.xor2.net_3 24 400
+| device fulladder_6.halfadder_1.xor2.pmos_2 800 130
+p net_6 VDD fulladder_6.halfadder_1.xor2.net_3 24 400
+| end fulladder_6.halfadder_1.xor2
+| end fulladder_6.halfadder_1
+| end fulladder_6
+| begin fulladder_7 1630 250
+| begin fulladder_7.nand 890 300
+| device fulladder_7.nand.pmos 390 270
+p fulladder_7.net_1 vdd Cout 24 200
+| device fulladder_7.nand.pmos_1 560 270
+p fulladder_7.net_3 vdd Cout 24 200
+| device fulladder_7.nand.nmos 460 420
+n fulladder_7.net_1 fulladder_7.nand.net_1 Cout 24 200
+| device fulladder_7.nand.nmos_1 460 500
+n fulladder_7.net_3 gnd fulladder_7.nand.net_1 24 200
+| end fulladder_7.nand
+| begin fulladder_7.halfadder 390 290
+| begin fulladder_7.halfadder.nand 320 400
+| device fulladder_7.halfadder.nand.pmos 390 270
+p A[7] vdd fulladder_7.net_1 24 200
+| device fulladder_7.halfadder.nand.pmos_1 560 270
+p B[7] vdd fulladder_7.net_1 24 200
+| device fulladder_7.halfadder.nand.nmos 460 420
+n A[7] fulladder_7.halfadder.nand.net_1 fulladder_7.net_1 24 200
+| device fulladder_7.halfadder.nand.nmos_1 460 500
+n B[7] gnd fulladder_7.halfadder.nand.net_1 24 200
+| end fulladder_7.halfadder.nand
+| begin fulladder_7.halfadder.xor2 330 190
+| begin fulladder_7.halfadder.xor2.nor 340 350
+| device fulladder_7.halfadder.xor2.nor.nmos 380 420
+n B[7] gnd fulladder_7.halfadder.xor2.net_1 24 100
+| device fulladder_7.halfadder.xor2.nor.nmos_1 530 420
+n A[7] gnd fulladder_7.halfadder.xor2.net_1 24 100
+| device fulladder_7.halfadder.xor2.nor.pmos 430 280
+p B[7] fulladder_7.halfadder.xor2.nor.net_1 fulladder_7.halfadder.xor2.net_1 24 400
+| device fulladder_7.halfadder.xor2.nor.pmos_1 430 200
+p A[7] vdd fulladder_7.halfadder.xor2.nor.net_1 24 400
+| end fulladder_7.halfadder.xor2.nor
+| device fulladder_7.halfadder.xor2.nmos 780 420
+n fulladder_7.halfadder.xor2.net_1 GND fulladder_7.net_2 24 100
+| device fulladder_7.halfadder.xor2.nmos_1 620 360
+n A[7] fulladder_7.halfadder.xor2.net_2 fulladder_7.net_2 24 200
+| device fulladder_7.halfadder.xor2.nmos_2 620 490
+n B[7] GND fulladder_7.halfadder.xor2.net_2 24 200
+| device fulladder_7.halfadder.xor2.pmos 710 240
+p fulladder_7.halfadder.xor2.net_1 fulladder_7.halfadder.xor2.net_3 fulladder_7.net_2 24 400
+| device fulladder_7.halfadder.xor2.pmos_1 640 130
+p A[7] VDD fulladder_7.halfadder.xor2.net_3 24 400
+| device fulladder_7.halfadder.xor2.pmos_2 800 130
+p B[7] VDD fulladder_7.halfadder.xor2.net_3 24 400
+| end fulladder_7.halfadder.xor2
+| end fulladder_7.halfadder
+| begin fulladder_7.halfadder_1 650 400
+| begin fulladder_7.halfadder_1.nand 320 400
+| device fulladder_7.halfadder_1.nand.pmos 390 270
+p fulladder_7.net_2 vdd fulladder_7.net_3 24 200
+| device fulladder_7.halfadder_1.nand.pmos_1 560 270
+p net_4 vdd fulladder_7.net_3 24 200
+| device fulladder_7.halfadder_1.nand.nmos 460 420
+n fulladder_7.net_2 fulladder_7.halfadder_1.nand.net_1 fulladder_7.net_3 24 200
+| device fulladder_7.halfadder_1.nand.nmos_1 460 500
+n net_4 gnd fulladder_7.halfadder_1.nand.net_1 24 200
+| end fulladder_7.halfadder_1.nand
+| begin fulladder_7.halfadder_1.xor2 330 190
+| begin fulladder_7.halfadder_1.xor2.nor 340 350
+| device fulladder_7.halfadder_1.xor2.nor.nmos 380 420
+n net_4 gnd fulladder_7.halfadder_1.xor2.net_1 24 100
+| device fulladder_7.halfadder_1.xor2.nor.nmos_1 530 420
+n fulladder_7.net_2 gnd fulladder_7.halfadder_1.xor2.net_1 24 100
+| device fulladder_7.halfadder_1.xor2.nor.pmos 430 280
+p net_4 fulladder_7.halfadder_1.xor2.nor.net_1 fulladder_7.halfadder_1.xor2.net_1 24 400
+| device fulladder_7.halfadder_1.xor2.nor.pmos_1 430 200
+p fulladder_7.net_2 vdd fulladder_7.halfadder_1.xor2.nor.net_1 24 400
+| end fulladder_7.halfadder_1.xor2.nor
+| device fulladder_7.halfadder_1.xor2.nmos 780 420
+n fulladder_7.halfadder_1.xor2.net_1 GND Sum[7] 24 100
+| device fulladder_7.halfadder_1.xor2.nmos_1 620 360
+n fulladder_7.net_2 fulladder_7.halfadder_1.xor2.net_2 Sum[7] 24 200
+| device fulladder_7.halfadder_1.xor2.nmos_2 620 490
+n net_4 GND fulladder_7.halfadder_1.xor2.net_2 24 200
+| device fulladder_7.halfadder_1.xor2.pmos 710 240
+p fulladder_7.halfadder_1.xor2.net_1 fulladder_7.halfadder_1.xor2.net_3 Sum[7] 24 400
+| device fulladder_7.halfadder_1.xor2.pmos_1 640 130
+p fulladder_7.net_2 VDD fulladder_7.halfadder_1.xor2.net_3 24 400
+| device fulladder_7.halfadder_1.xor2.pmos_2 800 130
+p net_4 VDD fulladder_7.halfadder_1.xor2.net_3 24 400
+| end fulladder_7.halfadder_1.xor2
+| end fulladder_7.halfadder_1
+| end fulladder_7
