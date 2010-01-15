@@ -1,0 +1,12 @@
+| nand.cmd
+
+analyzer A B nandO
+vector INPUT A B
+set INPUT 0 0
+s
+set INPUT 0 1
+s
+set INPUT 1 0
+s
+set INPUT 1 1
+s

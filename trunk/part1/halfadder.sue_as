@@ -1,0 +1,38 @@
+# SUE version MMI_SUE4.3.6 (auto-save)
+
+proc SCHEMATIC_halfadder {} {
+  make nand -origin {320 400}
+  make xor2 -origin {330 190}
+  make input -name A -origin {90 190}
+  make input -name B -origin {90 230}
+  make output -name S -origin {520 110}
+  make output -name C -origin {490 320}
+  make_wire 140 190 140 110
+  make_wire 140 110 230 110
+  make_wire 170 230 170 130
+  make_wire 170 130 230 130
+  make_wire 520 110 430 110
+  make_wire 120 190 120 320
+  make_wire 120 320 220 320
+  make_wire 120 190 90 190
+  make_wire 120 190 140 190
+  make_wire 100 230 100 340
+  make_wire 100 340 220 340
+  make_wire 100 230 90 230
+  make_wire 100 230 170 230
+  make_wire 420 320 490 320
+}
+
+proc ICON_halfadder args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-100 -80} -name A
+  icon_term -type input -origin {-100 -60} -name B
+  icon_term -type output -origin {100 -80} -name C
+  icon_term -type output -origin {100 -60} -name S
+  icon_property -origin {-50 70} -type user -name name
+  icon_property -origin {-50 90} -type user -name M
+  icon_property -origin {-50 110} -type user -name dpc
+  icon_line -100 -110 -100 -10 100 -10 100 -110 -100 -110 -100 -110
+  icon_property -origin {-50 -60} -label {Half Adder}
+}
+

@@ -1,0 +1,12 @@
+| halfadder.cmd
+
+analyzer Ain Bin S C
+vector INPUT Ain Bin
+set INPUT 0 0
+s
+set INPUT 0 1
+s
+set INPUT 1 0
+s
+set INPUT 1 1
+s

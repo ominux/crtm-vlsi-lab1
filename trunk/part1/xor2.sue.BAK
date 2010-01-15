@@ -1,0 +1,62 @@
+# SUE version MMI_SUE4.3.6
+
+proc SCHEMATIC_xor2 {} {
+  make nor -origin {340 350}
+  make nmos -origin {780 420}
+  make global -name GND -origin {620 530}
+  make global -name GND -origin {780 530}
+  make global -orient RY -name VDD -origin {640 70}
+  make global -orient RY -name VDD -origin {800 70}
+  make output -name O -origin {870 310}
+  make input -name A -origin {140 270}
+  make input -name B -origin {140 290}
+  make nmos -W 2 -origin {620 360}
+  make nmos -W 2 -origin {620 490}
+  make pmos -W 4 -origin {710 240}
+  make pmos -W 4 -origin {640 130}
+  make pmos -W 4 -origin {800 130}
+  make_wire 160 490 560 490
+  make_wire 160 290 140 290
+  make_wire 780 460 780 530
+  make_wire 780 310 780 380
+  make_wire 710 310 710 280
+  make_wire 710 310 780 310
+  make_wire 710 170 640 170
+  make_wire 710 170 800 170
+  make_wire 710 170 710 200
+  make_wire 640 90 640 70
+  make_wire 800 90 800 70
+  make_wire 180 270 180 130
+  make_wire 510 240 650 240
+  make_wire 510 270 440 270
+  make_wire 780 310 870 310
+  make_wire 510 240 510 270
+  make_wire 510 270 510 420
+  make_wire 620 310 620 320
+  make_wire 620 310 710 310
+  make_wire 180 360 560 360
+  make_wire 510 420 720 420
+  make_wire 620 450 620 400
+  make_wire 740 100 740 130
+  make_wire 160 100 740 100
+  make_wire 160 100 160 290
+  make_wire 180 130 580 130
+  make_wire 160 290 240 290
+  make_wire 180 270 140 270
+  make_wire 180 270 240 270
+  make_wire 180 270 180 360
+  make_wire 160 290 160 490
+}
+
+proc ICON_xor2 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-100 -80} -name A
+  icon_term -type input -origin {-100 -60} -name B
+  icon_term -type output -origin {100 -80} -name O
+  icon_property -origin {-50 70} -type user -name name
+  icon_property -origin {-50 90} -type user -name M
+  icon_property -origin {-50 110} -type user -name dpc
+  icon_line -100 -140 -100 -20 100 -20 100 -140 -100 -140
+  icon_property -origin {-30 -90} -label XOR2
+}
+
