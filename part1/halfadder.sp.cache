@@ -1,0 +1,8 @@
+set NETLIST_CACHE(halfadder,cells) {{schematic nand} {schematic xor2}}
+set netlist_props spice
+set netlist_level 1000
+set NETLIST_CACHE(halfadder,level) main
+set NETLIST_CACHE(halfadder,version) MMI_SUE4.3.6
+set NETLIST_CACHE(halfadder) {{* start main CELL halfadder} {* .SUBCKT halfadder A B C S } {Xnand A B C nand } {Xxor2 A B S xor2 } {* .ENDS	$ halfadder} {}}
+set NETLIST_CACHE(halfadder,names) {{330 190 {0 Xxor2}} {520 110 {1 S}} {90 190 {1 A}} {230 110 {0 A}} {220 320 {0 A}} {230 130 {0 B}} {430 110 {0 S}} {320 400 {0 Xnand}} {490 320 {1 C}} {220 340 {0 B}} {420 320 {0 C}} {90 230 {1 B}}}
+set NETLIST_CACHE(halfadder,wires) {{140 110 140 190 A} {140 110 230 110 A} {170 130 170 230 B} {170 130 230 130 B} {430 110 520 110 S} {120 190 120 320 A} {120 320 220 320 A} {90 190 120 190 A} {120 190 140 190 A} {100 230 100 340 B} {100 340 220 340 B} {90 230 100 230 B} {100 230 170 230 B} {420 320 490 320 C}}

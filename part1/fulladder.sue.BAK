@@ -1,0 +1,32 @@
+# SUE version MMI_SUE4.3.6
+
+proc SCHEMATIC_fulladder {} {
+  make halfadder -origin {390 290}
+  make halfadder -origin {650 400}
+  make input -name A -origin {220 180}
+  make input -name B -origin {220 230}
+  make input -name Cin -origin {220 290}
+  make output -name S -origin {830 330}
+  make output -name Cout -origin {1010 220}
+  make nand -origin {890 300}
+  make_wire 220 180 260 180
+  make_wire 220 230 290 230
+  make_wire 260 210 290 210
+  make_wire 260 180 260 210
+  make_wire 220 290 220 340
+  make_wire 220 340 550 340
+  make_wire 490 210 530 210
+  make_wire 530 210 530 320
+  make_wire 530 320 550 320
+  make_wire 750 320 810 320
+  make_wire 810 320 810 330
+  make_wire 810 330 830 330
+  make_wire 990 220 1010 220
+  make_wire 750 340 770 340
+  make_wire 770 340 770 240
+  make_wire 770 240 790 240
+  make_wire 490 230 660 230
+  make_wire 660 230 660 220
+  make_wire 660 220 790 220
+}
+

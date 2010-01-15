@@ -8,11 +8,10 @@
 
 # Special SUE version which includes file modification times.
 
-set auto_index(SCHEMATIC_xor2) [list source [file join $dir xor2.sue]]
-set auto_index(SCHEMATIC_inv) [list source [file join $dir inv.sue]]
-set auto_index(SCHEMATIC_nor) [list source [file join $dir nor.sue]]
-set auto_index(ICON_nor) [list source [file join $dir nor.sue]]
 set auto_index(SCHEMATIC_Counter) [list source [file join $dir Counter.sue]]
 set auto_index(ICON_Counter) [list source [file join $dir Counter.sue]]
+set auto_index(SCHEMATIC_inv) [list source [file join $dir inv.sue]]
 set auto_index(SCHEMATIC_nand) [list source [file join $dir nand.sue]]
-set mtimes {{xor2.sue 1263428706} {inv.sue 1263423512} {nor.sue 1263428706} {Counter.sue 1263428706} {nand.sue 1263423512}}
+set auto_index(SCHEMATIC_nor) [list source [file join $dir nor.sue]]
+set auto_index(ICON_nor) [list source [file join $dir nor.sue]]
+set mtimes {{Counter.sue 1263428706} {inv.sue 1263423512} {nand.sue 1263423512} {nor.sue 1263428706}}

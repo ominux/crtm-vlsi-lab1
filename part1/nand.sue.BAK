@@ -6,11 +6,11 @@ proc SCHEMATIC_nand {} {
   make global -orient RY -name VDD -origin {390 230}
   make global -orient RY -name VDD -origin {560 230}
   make global -name GND -origin {460 540}
+  make output -name O -origin {650 340}
   make input -name A -origin {180 330}
   make input -name B -origin {180 410}
   make nmos -W 2 -origin {460 420}
   make nmos -W 2 -origin {460 500}
-  make output -name nandO -origin {650 340}
   make_wire 390 310 390 340
   make_wire 560 340 560 310
   make_wire 460 340 460 380
@@ -36,7 +36,7 @@ proc ICON_nand args {
   icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
   icon_term -type input -origin {-100 -80} -name A
   icon_term -type input -origin {-100 -60} -name B
-  icon_term -type output -origin {100 -80} -name nandO
+  icon_term -type output -origin {100 -80} -name O
   icon_property -origin {-50 70} -type user -name name
   icon_property -origin {-50 90} -type user -name M
   icon_property -origin {-50 110} -type user -name dpc
