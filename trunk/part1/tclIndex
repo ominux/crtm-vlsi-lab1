@@ -22,4 +22,4 @@ set auto_index(ICON_halfadder) [list source [file join $dir halfadder.sue]]
 set auto_index(SCHEMATIC_fulladder) [list source [file join $dir fulladder.sue]]
 set auto_index(ICON_fulladder) [list source [file join $dir fulladder.sue]]
 set auto_index(SCHEMATIC_eightbitadder) [list source [file join $dir eightbitadder.sue]]
-set mtimes {{Counter.sue 1263428706} {inv.sue 1263423512} {nand.sue 1263589620} {nor.sue 1263428706} {xor2.sue 1263575939} {halfadder.sue 1263578815} {fulladder.sue 1263581975} {eightbitadder.sue 1263589152}}
+set mtimes {{Counter.sue 1263428706} {inv.sue 1263423512} {nand.sue 1263589697} {nor.sue 1263428706} {xor2.sue 1263592351} {halfadder.sue 1263578815} {fulladder.sue 1263581975} {eightbitadder.sue 1263592160}}

@@ -1,5 +1,5 @@
 Using: /CMC/tools/meta/Y-2006.03/hspice/linux/hspice
- ******  HSPICE  Y-2006.03       (20060222) 16:04:06  01/15/2010  linux        
+ ******  HSPICE  Y-2006.03       (20060222) 16:05:05  01/15/2010  linux        
   Copyright (C) 2006 Synopsys, Inc. All Rights Reserved.                       
   Unpublished-rights reserved under US copyright laws.
   This program is protected by law and is subject to the 
@@ -11,7 +11,7 @@ Using: /CMC/tools/meta/Y-2006.03/hspice/linux/hspice
  lic:  
  lic: FLEXlm: v8.4b 
  lic: USER:   ravishan             HOSTNAME: ug142.eecg 
- lic: HOSTID: 00219b46563c         PID:      12584 
+ lic: HOSTID: 00219b46563c         PID:      12710 
  lic: Using FLEXlm license file: 
  lic: /CMC/tools/licenses/synopsys.license 
  lic: Checkout hspice;  Encryption code: 2DBA5AA5CF41326EE255 
@@ -199,7 +199,7 @@ Using: /CMC/tools/meta/Y-2006.03/hspice/linux/hspice
  .global gnd vdd
   
  .end
-1 ******  HSPICE  Y-2006.03       (20060222) 16:04:06  01/15/2010  linux        
+1 ******  HSPICE  Y-2006.03       (20060222) 16:05:05  01/15/2010  linux        
  ******  
  * file: eightbitadder.sp                                                      
   ******  circuit name directory                                               
@@ -317,7 +317,7 @@ Using: /CMC/tools/meta/Y-2006.03/hspice/linux/hspice
                                        nor                1.00 
     80 xfulladder_7.xhalfadder_1.xxor2.xnor.
                                        nor                1.00 
-1 ******  HSPICE  Y-2006.03       (20060222) 16:04:06  01/15/2010  linux        
+1 ******  HSPICE  Y-2006.03       (20060222) 16:05:05  01/15/2010  linux        
  ******  
  * file: eightbitadder.sp                                                      
   ******  mos   model parameters           tnom=  25.000 temp=  25.000         
@@ -598,7 +598,7 @@ Using: /CMC/tools/meta/Y-2006.03/hspice/linux/hspice
  **error**  no dc path to ground from node        0:cin              defined in subckt 0               
 
 
-1 ******  HSPICE  Y-2006.03       (20060222) 16:04:06  01/15/2010  linux        
+1 ******  HSPICE  Y-2006.03       (20060222) 16:05:05  01/15/2010  linux        
  ******  
  * file: eightbitadder.sp                                                      
   ******  option summary                                                       
@@ -692,7 +692,7 @@ gdcpath=   0.
   vbfwdmod =-1
 
           ***** job aborted
-1 ******  HSPICE  Y-2006.03       (20060222) 16:04:06  01/15/2010  linux        
+1 ******  HSPICE  Y-2006.03       (20060222) 16:05:05  01/15/2010  linux        
  ******  
  * file: eightbitadder.sp                                                      
   ******  job statistics summary           tnom=  25.000 temp=  25.000         
@@ -707,16 +707,16 @@ gdcpath=   0.
 
      op point          0.00         1         0
      transient         0.00      1601         0         0 rev=     0
-     readin            0.01
+     readin            0.00
      errchk            0.06
      setup             0.00
      output            0.00
-           total cpu time          0.07 seconds
-               job started at  16:04:06  01/15/2010
-               job ended   at  16:04:06  01/15/2010
+           total cpu time          0.06 seconds
+               job started at  16:05:05  01/15/2010
+               job ended   at  16:05:06  01/15/2010
 
 
  Init: hspice initialization file: /CMC/tools/meta/Latest/hspice.ini
  lic: Release hspice token(s) 
 HSPICE job eightbitadder.sp completed.
-Fri Jan 15 16:04:06 EST 2010
+Fri Jan 15 16:05:06 EST 2010

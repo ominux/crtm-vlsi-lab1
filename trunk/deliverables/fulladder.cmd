@@ -1,0 +1,20 @@
+| fulladder.cmd
+
+analyzer A B Cin S Cout
+vector INPUT Cin A B
+set INPUT 000
+s
+set INPUT 001
+s
+set INPUT 010
+s
+set INPUT 011
+s
+set INPUT 100
+s
+set INPUT 101
+s
+set INPUT 110
+s
+set INPUT 111
+s

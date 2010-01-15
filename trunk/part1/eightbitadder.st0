@@ -1,9 +1,9 @@
-*****  HSPICE  Y-2006.03       (20060222) 16:05:05  01/15/2010  linux
+*****  HSPICE  Y-2006.03       (20060222) 17:15:40  01/15/2010  linux
  Input File: eightbitadder.sp
  lic:
  lic: FLEXlm: v8.4b
  lic: USER:   ravishan             HOSTNAME: ug142.eecg
- lic: HOSTID: 00219b46563c         PID:      12710
+ lic: HOSTID: 00219b46563c         PID:      14170
  lic: Using FLEXlm license file:
  lic: /CMC/tools/licenses/synopsys.license
  lic: Checkout hspice;  Encryption code: 2DBA5AA5CF41326EE255
@@ -11,33 +11,33 @@
  lic: 1(in_use)/50 FLOATING license(s) on SERVER u10e.vrg.utoronto.ca
  lic:
  Init: hspice initialization file: /CMC/tools/meta/Latest/hspice.ini
- init: begin read circuit files,  cpu clock=  1.20E-02
+ init: begin read circuit files,  cpu clock=  1.60E-02
        option post
        option acct
        option opts
        option lvltim   =     2.00
        option post_v   =    9.007E+03
- init: end read circuit files,  cpu clock=  1.60E-02 memory=    161 kb
- init: begin check errors,  cpu clock=  1.60E-02
- **error**  no dc path to ground from node        0:                a0
- **error**  no dc path to ground from node        0:                a1
- **error**  no dc path to ground from node        0:                a2
- **error**  no dc path to ground from node        0:                a3
- **error**  no dc path to ground from node        0:                a4
- **error**  no dc path to ground from node        0:                a5
- **error**  no dc path to ground from node        0:                a6
- **error**  no dc path to ground from node        0:                a7
- **error**  no dc path to ground from node        0:                b0
- **error**  no dc path to ground from node        0:                b1
- **error**  no dc path to ground from node        0:                b2
- **error**  no dc path to ground from node        0:                b3
- **error**  no dc path to ground from node        0:                b4
- **error**  no dc path to ground from node        0:                b5
- **error**  no dc path to ground from node        0:                b6
- **error**  no dc path to ground from node        0:                b7
+ init: end read circuit files,  cpu clock=  2.00E-02 memory=    161 kb
+ init: begin check errors,  cpu clock=  2.00E-02
+ **error**  no dc path to ground from node        0:                a[0]
+ **error**  no dc path to ground from node        0:                a[1]
+ **error**  no dc path to ground from node        0:                a[2]
+ **error**  no dc path to ground from node        0:                a[3]
+ **error**  no dc path to ground from node        0:                a[4]
+ **error**  no dc path to ground from node        0:                a[5]
+ **error**  no dc path to ground from node        0:                a[6]
+ **error**  no dc path to ground from node        0:                a[7]
+ **error**  no dc path to ground from node        0:                b[0]
+ **error**  no dc path to ground from node        0:                b[1]
+ **error**  no dc path to ground from node        0:                b[2]
+ **error**  no dc path to ground from node        0:                b[3]
+ **error**  no dc path to ground from node        0:                b[4]
+ **error**  no dc path to ground from node        0:                b[5]
+ **error**  no dc path to ground from node        0:                b[6]
+ **error**  no dc path to ground from node        0:                b[7]
  **error**  no dc path to ground from node        0:                cin
- init: end check errors,  cpu clock=  7.60E-02 memory=   1984 kb
- init: begin setup matrix, pivot=    10 cpu clock=  7.60E-02
+ init: end check errors,  cpu clock=  7.20E-02 memory=   1984 kb
+ init: begin setup matrix, pivot=    10 cpu clock=  7.20E-02
 >error          ***** hspice job aborted
  Init: hspice initialization file: /CMC/tools/meta/Latest/hspice.ini
  lic: Release hspice token(s)

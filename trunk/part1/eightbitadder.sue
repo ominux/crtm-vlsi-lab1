@@ -19,7 +19,6 @@ proc SCHEMATIC_eightbitadder {} {
   make name_net_s -orient R90 -name {Sum[4]} -origin {1020 390}
   make name_net_s -orient R90 -name {Sum[3]} -origin {830 390}
   make name_net_s -orient R90 -name {Sum[2]} -origin {640 390}
-  make output -orient R90 -name {Sum[0:7]} -origin {1010 730}
   make name_net_s -orient R90 -name {A[0]} -origin {190 -40}
   make name_net_s -orient R90 -name {A[1]} -origin {390 -40}
   make name_net_s -orient R90 -name {A[2]} -origin {580 -50}
@@ -38,6 +37,7 @@ proc SCHEMATIC_eightbitadder {} {
   make name_net_s -orient R90 -name {B[7]} -origin {1660 -40}
   make input -orient R90 -name {A[0:7]} -origin {620 -390}
   make input -orient R90 -name {B[0:7]} -origin {1070 -380}
+  make output -orient R90 -name {Sum[7:0]} -origin {1010 730}
   make_wire 320 210 350 210
   make_wire 520 210 540 210
   make_wire 710 210 730 210
