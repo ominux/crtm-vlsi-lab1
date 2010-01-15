@@ -1,0 +1,48 @@
+# SUE version MMI_SUE4.3.6
+
+proc SCHEMATIC_nor {} {
+  make nmos -origin {380 420}
+  make nmos -origin {530 420}
+  make input -name A -origin {200 250}
+  make input -name B -origin {200 330}
+  make output -name O -origin {530 340}
+  make pmos -W 4 -origin {430 280}
+  make pmos -W 4 -origin {430 200}
+  make global -name gnd -origin {390 480}
+  make global -name gnd -origin {530 480}
+  make global -orient RY -name vdd -origin {430 160}
+  make_wire 430 380 380 380
+  make_wire 430 380 530 380
+  make_wire 280 330 280 420
+  make_wire 280 420 320 420
+  make_wire 270 330 270 280
+  make_wire 270 280 370 280
+  make_wire 270 330 280 330
+  make_wire 290 250 290 200
+  make_wire 290 200 370 200
+  make_wire 230 450 470 450
+  make_wire 470 450 470 420
+  make_wire 230 250 200 250
+  make_wire 230 250 290 250
+  make_wire 430 340 530 340
+  make_wire 430 340 430 380
+  make_wire 430 340 430 320
+  make_wire 390 460 390 480
+  make_wire 380 460 390 460
+  make_wire 530 460 530 480
+  make_wire 230 450 230 250
+  make_wire 200 330 270 330
+}
+
+proc ICON_nor args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type input -origin {-100 -80} -name A
+  icon_term -type input -origin {-100 -60} -name B
+  icon_term -type output -origin {100 -80} -name O
+  icon_property -origin {-50 70} -type user -name name
+  icon_property -origin {-50 90} -type user -name M
+  icon_property -origin {-50 110} -type user -name dpc
+  icon_line -100 -110 -100 -10 90 -10 100 -10 100 -110 -100 -110 -100 -110 -100 -110 -100 -110 -100 -110 -100 -110 -100 -80 -100 -80
+  icon_property -origin {-40 -60} -label NOR
+}
+

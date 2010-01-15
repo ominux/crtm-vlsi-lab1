@@ -1,0 +1,30 @@
+# SUE version MMI_SUE4.3.6
+
+proc SCHEMATIC_Counter {} {
+  make global -name GND -origin {20 160}
+  make global -name GND -origin {-70 160}
+  make pulse -origin {20 90}
+  make pulse -pulse_width 6ns -period 12ns -origin {-70 90}
+  make output -name OUT1 -origin {90 -40}
+  make output -name OUT2 -origin {90 -20}
+  make_wire -70 130 -70 160
+  make_wire 20 130 20 160
+  make_wire 20 -20 90 -20
+  make_wire -70 -40 90 -40
+  make_wire -70 50 -70 -40
+  make_wire 20 -20 20 50
+}
+
+proc ICON_Counter args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}} {M {}} {dpc {}}}
+  icon_term -type output -origin {100 -20} -name OUT1
+  icon_term -type output -origin {100 0} -name OUT2
+  icon_property -origin {-50 130} -type user -name name
+  icon_property -origin {-50 150} -type user -name M
+  icon_property -origin {-50 170} -type user -name dpc
+  icon_line -80 -60 -80 60 100 60 100 -60 -80 -60
+  icon_property -origin {-30 30} -label Counter
+  icon_property -origin {90 -30} -anchor e -label OUT1
+  icon_property -origin {90 0} -anchor e -label OUT2
+}
+

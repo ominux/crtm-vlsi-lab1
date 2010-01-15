@@ -1,0 +1,118 @@
+# WARNING:
+#
+# The .max file format continues to evolve.
+#
+# Micro Magic recommends you do not write or parse .max files directly.
+# Instead use the Max API (e.g. 'db_search' and 'db_paint' commands).
+# The API is also easier to interface to.  See 'Text Commands' under
+# the Max 'Help' menu for full documentation on the API.
+
+max 3
+tech mmi25
+resolution 0.001
+
+
+DEF #fet!-_version!1242370958 "fet (S)" "1/0.24"
+
+SECTION RECTS {
+layer ndif
+-660 0 0 1000
+240 0 900 1000
+layer poly
+0 1000 240 1360
+0 -360 240 0
+layer ct
+-520 350 -220 650
+460 350 760 650
+layer m1
+-610 50 -130 950
+370 50 850 950
+layer nfet
+0 0 240 1000
+} SECTION RECTS
+
+SECTION LABELS {
+lab poly 120 -180 120 -180 3 1 gs
+lab poly 120 1180 120 1180 3 1 gn
+lab ndif -370 500 -370 500 3 1 s
+lab ndif 610 500 610 500 3 1 d
+} SECTION LABELS
+
+
+DEF #fet!-type!pfet!-width!2.0!-_version!1108712382 "fet (S)" "2.0/0.24"
+
+SECTION RECTS {
+layer pdif
+-660 0 0 2000
+240 0 900 2000
+layer poly
+0 2000 240 2360
+0 -360 240 0
+layer ct
+-520 1440 -220 1740
+460 1440 760 1740
+-520 840 -220 1140
+460 840 760 1140
+-520 240 -220 540
+460 240 760 540
+layer m1
+-610 50 -130 1950
+370 50 850 1950
+layer pfet
+0 0 240 2000
+} SECTION RECTS
+
+SECTION LABELS {
+lab poly 120 -180 120 -180 3 1 gs
+lab poly 120 2180 120 2180 3 1 gn
+lab pdif -370 1000 -370 1000 3 1 s
+lab pdif 610 1000 610 1000 3 1 d
+} SECTION LABELS
+
+
+DEF
+
+SECTION VERSIONS {
+vMAIN 1263423675 141
+vDRC 1263423675 141
+vBBOX 1263423406 7
+} SECTION VERSIONS
+
+SECTION RECTS {
+layer poly
+-90 2600 150 3200
+-1460 2360 1850 2600
+-1460 940 -1220 2360
+1610 1520 1850 2360
+layer m1
+-1840 3300 2590 4220
+2060 800 2380 3300
+-2020 250 -1590 570
+-1010 250 1430 570
+-1910 -1300 -1590 250
+1080 240 1430 250
+-2270 -2320 3260 -1300
+} SECTION RECTS
+
+SECTION LABELS {
+lab m1 40 410 40 410 0 5 O
+lab poly 30 2900 30 2900 0 4 A
+lab m1 290 -1840 290 -1840 0 3 gnd
+lab m1 110 3750 110 3750 0 3 vdd
+} SECTION LABELS
+
+SECTION GROUPS {
+} SECTION GROUPS
+
+SECTION INSTANCES {
+gcell 1242370958 #fet
+bbox -660 -360 900 1360
+uses {
+	_0 1 0 -1460 0 1 -110
+}
+gcell 1108712382 #fet!-type!pfet!-width!2.0
+bbox -660 -360 900 2360
+uses {
+	_0 -1 0 1850 0 -1 1370
+}
+} SECTION INSTANCES
